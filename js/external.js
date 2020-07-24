@@ -1,4 +1,6 @@
 "use strict";
+(function() {
+
 console.log("Hello from external JavaScript");
 alert("Welcome to my Website!");
 
@@ -7,24 +9,58 @@ var response = prompt("What is your favorite color?");
 alert("Great, " + response + " is my favorite color too!");
 
 // 3.1
-var mermaid = prompt("How may days rental for the Little Mermaid?");
-var bear = prompt("How may days rental for the Brother Bear?");
-var herc = prompt("How may days rental for the Hercules?");
-var total = (Number(mermaid) + Number(bear) + Number(herc)) * 3;
+// initial solution
+// var mermaid = prompt("How may days rental for the Little Mermaid?");
+// var bear = prompt("How may days rental for the Brother Bear?");
+// var herc = prompt("How may days rental for the Hercules?");
+// var total = (Number(mermaid) + Number(bear) + Number(herc)) * 3;
+//
+// alert("Your total price for the rentals is: $" + total.toFixed(2));
 
-alert("Your total price for the rentals is: $" + total.toFixed(2));
+// Updating to use array objects
+var movies = [
+    {title: "The Little Mermaid", days: 3},
+    {title: "Brother Bear", days: 5},
+    {title: "Hercules", days: 1}
+]
+var pricePerDay = 3;
+var subTotal = 0;
+
+movies.forEach(function(movie){
+    subTotal += pricePerDay * movie.days;
+})
+
+alert("Your total price for the rentals is: $" + subTotal.toFixed(2));
 
 // 3.2
+// Initial solution
+// var gRate = prompt("What is the hourly rate for Google?");
+// var gHours = prompt("How many hours working for Google?");
+// var aRate = prompt("What is the hourly rate for Amazon?");
+// var aHours = prompt("How many hours working for Amazon?");
+// var fbRate = prompt("What is the hourly rate for Facebook?");
+// var fbHours = prompt("How many hours working for Facebook?");
+// var pay = (Number(gRate) * Number(gHours)) + (Number(aRate) * Number(aHours)) + (Number(fbRate) * Number(fbHours));
+//
+// alert("You will receive the following total pay for the week: $" + pay.toFixed(2));
 
-var gRate = prompt("What is the hourly rate for Google?");
-var gHours = prompt("How many hours working for Google?");
-var aRate = prompt("What is the hourly rate for Amazon?");
-var aHours = prompt("How many hours working for Amazon?");
-var fbRate = prompt("What is the hourly rate for Facebook?");
-var fbHours = prompt("How many hours working for Facebook?");
-var pay = (Number(gRate) * Number(gHours)) + (Number(aRate) * Number(aHours)) + (Number(fbRate) * Number(fbHours));
+// Updating to use object arrays
 
-alert("You will receive the following total pay for the week: $" + pay.toFixed(2));
+var companies = [
+    {name: "Google", rate: 400, hours: 6},
+    {name: "Amazon", rate: 380, hours: 4},
+    {name: "Facebook", rate: 350, hours: 10}
+]
+
+var grossPay = 0;
+
+companies.forEach(function(companies) {
+    var amountPaid = (companies.hours * companies.rate);
+    console.log(companies.name + "'s gross pay is: $" + amountPaid);
+    grossPay += amountPaid;
+})
+
+console.log("The final pay for the week is: $" + grossPay.toFixed(2));
 
 // 3.3
 
@@ -49,3 +85,5 @@ if ((premium || (userCart > 2)) && expired) {
 } else {
     alert("You do not qualify for this offer code or the code is invalid.")
 }
+
+})();
