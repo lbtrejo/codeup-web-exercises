@@ -88,8 +88,8 @@ console.log(analyzeColorSwitch(randomColor));
  * function to show it to the user.
  */
 
-// var promptColor = prompt("Please enter a color: ");
-// console.log(analyzeColor(promptColor));
+var promptColor = prompt("Please enter a color: ");
+console.log(analyzeColor(promptColor));
 
 
 /* ########################################################################## */
@@ -115,9 +115,6 @@ console.log(analyzeColorSwitch(randomColor));
  */
 
 function calculateTotal(lucky, totalAmt) {
-    console.log("==================================================");
-    console.log(" ");
-    console.log("Calc Total Example:");
     var discountPer = 0;
     var subTotal = 0;
     if (parseInt(lucky) === 0) {
