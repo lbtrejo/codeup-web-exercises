@@ -1,6 +1,6 @@
 "use strict";
 
-// // For loops #2
+// For loops #2
 function showMultiplicationTable(x) {
     for(var count = 1; count <= 10 ; count ++) {
         console.log(x.toString() + " x " + count.toString() + " = " + (x * count));
@@ -22,14 +22,21 @@ function oddOrEven(x) {
     return console.log(x + " is odd");
 }
 
-// var random = getRandomInt(20, 201);
-//
-// console.log("Random number: ", random);
-// oddOrEven(random);
-
 for (var randomNumber = 1 ; randomNumber <= 10 ; randomNumber++) {
     console.log("Random number count: " + randomNumber);
     var random = getRandomInt(20, 201);
     oddOrEven(random);
     console.log("");
+}
+
+// For loops #4
+
+for (var x = 1 ; x < 10 ; x++) {
+    console.log(x.toString().repeat(x))
+}
+
+// For loops #5
+
+for (var x = 100 ; x > 0 ; x -= 5) {
+    console.log(x);
 }
