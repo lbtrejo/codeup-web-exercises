@@ -71,7 +71,7 @@
         console.log(arr[arr.length - 1]);
     }
 
-    var data = [1, 2, 3, 4, 5];
+    var data = [1, 7, 2, 3, 4, 5, 32];
     first(data);
     second(data);
     last(data);
