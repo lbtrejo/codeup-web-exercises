@@ -62,18 +62,18 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
     var first = function(arr){
-        console.log(arr[0]);
+        return arr[0];
     }
     var second = function(arr){
-        console.log(arr[1]);
+        return arr[1];
     }
     var last = function(arr){
-        console.log(arr[arr.length - 1]);
+        return arr[arr.length - 1];
     }
 
     var data = [1, 7, 2, 3, 4, 5, 32];
-    first(data);
-    second(data);
-    last(data);
+    console.log(first(data));
+    console.log(second(data));
+    console.log(last(data));
 
 })();
