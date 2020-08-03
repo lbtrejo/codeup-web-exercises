@@ -12,6 +12,14 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    var person = {
+        firstName: "Levi",
+        lastName: "Trejo"
+    };
+
+    console.log("Person's first name: ", person.firstName);
+    console.log("Person's last name: ", person.lastName);
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -21,6 +29,13 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    person.sayHello = function(){
+        return "Hello from " + this.firstName + " " + this.lastName + "!"
+    }
+
+    console.log(person);
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
