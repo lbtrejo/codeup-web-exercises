@@ -2,7 +2,7 @@
     "use strict";
 
     var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    var planetsArray;
+    var planetsArray = [];
 
     /**
      * TODO:
@@ -19,13 +19,14 @@
      * results. Why might this be useful?
      *
      * BONUS:
-     * Create another string that would display your planets in an undordered
+     * Create another string that would display your planets in an unordered
      * list. You will need an opening AND closing <ul> tags around the entire
      * string, and <li> tags around each planet.
      */
 
     var planetsStringBr = planetsArray.join("<br>");
     console.log(planetsStringBr);
+    document.write(planetsStringBr);
 
     // BONUS:
     // Create a for_each function that wraps each element in <li> and </li> tags and outputs an array with these new string values
@@ -52,6 +53,7 @@
 
     var planetsList = planetsListArr.join("");
     console.log(planetsList);
+    document.write(planetsList);
 
     // Pre-work solution
     //  Update each element in the array and wrap them in <li></li> tags

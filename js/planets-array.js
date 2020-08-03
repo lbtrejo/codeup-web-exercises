@@ -38,10 +38,12 @@
     console.log("Index of Earth: " + planets.indexOf("Earth"));
 
     console.log("Reversing the order of the planets array.");
-    planets = planets.reverse();
+    //planets = planets.reverse();  Variable re-assignement is not required for this method, the original array is changed.
+    planets.reverse();
     console.log(planets);
 
     console.log("Sorting the planets array.");
-    planets = planets.sort();
+    //planets = planets.sort();  Variable re-assignement is not required for this method, the original array is changed.
+    planets.sort();
     console.log(planets);
 })();
