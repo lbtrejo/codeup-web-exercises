@@ -1,11 +1,11 @@
 "use strict";
 
-var x = 1;
-
-while (x < 50000) {
-    x *= 2;
-    console.log(x);
-}
+// var x = 1;
+//
+// while (x < 50000) {
+//     x *= 2;
+//     console.log(x);
+// }
 
 // Do While exercise
 
