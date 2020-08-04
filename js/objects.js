@@ -51,11 +51,34 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    // // Need a function to check for discount eligibility, return BOOL, store as object property
+    // // Set discount percentage as object property based on ELIG status
+    // // Calculate discount price and final price as functions
+
+    // function discountEligible(price) {
+    //     return price > 200;
+    // }
+
+    function discountedPrice(price) {
+        var discountAmt = price * .12;
+        var finalPrice = price - discountAmt;
+        return [discountAmt, finalPrice];
+    }
+    shoppers.forEach(function (shopper){
+        if (shopper.amount > 200) {
+            var prices = discountedPrice(shopper.amount);
+            console.log(shopper.name + " gets a $" + prices[0].toFixed(2) + " discount, for a grand total of $" + prices[1].toFixed(2) + "!");
+        } else {
+            console.log(shopper.name + " gets no discount, for a grand total of $" + shopper.amount.toFixed(2) + "!");
+        }
+    });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -69,6 +92,46 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    var books = [
+        {
+            title: "The Silmarillion",
+            author: {
+                firstName: "J.R.R",
+                lastName: "Tolkien"
+            }
+        },
+        {
+            title: "1984",
+            author: {
+                firstName: "George",
+                lastName: "Orwell"
+            }
+        },
+        {
+            title: "War and Peace",
+            author: {
+                firstName: "Leo",
+                lastName: "Tolstoy"
+            }
+        },
+        {
+            title: "Infinite Jest",
+            author: {
+                firstName: "David Foster",
+                lastName: "Wallace"
+            }
+        },
+        {
+            title: "The Hitchhiker's Guide to the Galaxy",
+            author: {
+                firstName: "Douglas",
+                lastName: "Adams"
+            }
+        }
+    ];
+
+    console.log(books);
 
     /**
      * TODO:
@@ -94,6 +157,15 @@
      *      ---
      *      ...
      */
+
+    // books.indexOf()
+
+    books.forEach(function(book) {
+        console.log("Book #" + (books.indexOf(book) + 1));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("--");
+    });
 
     /**
      * Bonus:
