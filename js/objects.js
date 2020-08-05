@@ -132,6 +132,20 @@
     // ];
     //
     // console.log(books);
+
+    // Refactor using createBook function
+
+    var books = [];
+    createBook("The Silmarillion", "J.R.R", "Tolkien", books);
+    createBook("The Hitchhiker's Guide to the Galaxy", "Douglas", "Adams", books);
+    createBook("Infinite Jest", "David Foster", "Wallace", books);
+    createBook("War and Peace", "Leo", "Tolstoy", books);
+    createBook("1984", "George", "Orwell", books);
+
+    console.log(books);
+
+
+
     //
     // /**
     //  * TODO:
@@ -167,6 +181,14 @@
     //     console.log("--");
     // });
 
+    books.forEach(function(bookObject) {
+            console.log("Book #" + (books.indexOf(bookObject) + 1));
+            showBookInfo(bookObject);
+        });
+
+
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -178,16 +200,21 @@
      *   `showBookInfo` function.
      */
 
-    function createBook(bookTitle, bookAuthor) {
-        var books = [];
-        var splitName = bookAuthor.split(" ");
-        books.title = bookTitle;
-        books.author = {
-            firstName: splitName[0],
-            lastName: splitName[1]
+    function createBook(bookTitle, bookAuthorFirst, bookAuthorLast, bookArray) {
+        var newBook = {
+            title: bookTitle,
+            author: {
+                firstName: bookAuthorFirst,
+                lastName: bookAuthorLast
+            }
         }
-        console.log(books);
+        bookArray.push(newBook);
     }
 
-    createBook("Title", "Levi Trejo");
+    function showBookInfo(bookObject) {
+        console.log("Title: " + bookObject.title);
+        console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+        console.log("--");
+    }
+
 })();
