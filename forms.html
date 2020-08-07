@@ -7,7 +7,7 @@
 <body>
     <header><h2>Register with Us!</h2></header>
     <main>
-        <form action="https://request-inspector.glitch.me/" method="POST">
+        <form action="https://www.elformo.com/forms/3826a5ce-69f0-4e36-889d-760bda0951de" method="post" accept-charset="UTF-8">
             <div id="exercise5">
                 <label for="email">Email Address: </label>
                 <input type="text" id="email" name="email" placeholder="user@domain.tld">
@@ -25,21 +25,34 @@
             <div id="exercise7">
                 <h4>How did you hear about us?</h4>
                 <label for="billboard">
-                    <input type="radio" id="billboard" name="advert" checked required> Billboard
+                    <input type="radio" id="billboard" name="advert" value="billboard" checked required> Billboard
                 </label>
                 <br>
                 <label for="radio">
-                    <input type="radio" id="radio" name="advert"> Radio Advertisement
+                    <input type="radio" id="radio" name="advert2" value="radio"> Radio Advertisement
                 </label>
                 <br>
                 <label for="internet">
-                    <input type="radio" id="internet" name="advert"> Internet Advertisement
+                    <input type="radio" id="internet" name="advert3" value="internet"> Internet Advertisement
                 </label>
                 <br>
                 <label for="other">
-                    <input type="radio" id="other" name="advert"> Other
+                    <input type="radio" id="other" name="advert4" value="other"> Other
                 </label>
             </div>
+            <br>
+            <div id="exercise8">
+                <label for="browser"><h4>What is your current web browser?</h4></label>
+                <select name="browser" id="browser">
+                    <option value="ff">Mozilla Firefox</option>
+                    <option value="ed">Microsoft Edge</option>
+                    <option value="cr">Google Chrome</option>
+                    <option value="sa">Apple Safari</option>
+                    <option value="op">Opera</option>
+                </select>
+            </div>
+            <br><br>
+            <button type="submit" id="submit">Submit your data to us!</button>
         </form>
     </main>
 </body>
