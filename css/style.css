@@ -3,8 +3,56 @@ multi
 line
 comment
 */
+body {
+    background-image: url("../img/congruent_pentagon.png");
+    background-repeat: repeat;
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    text-decoration: underline;
+    color: #9447ff;
+}
 
 .fancy-header {
-    color: purple; /* single line comment */
+    color: rebeccapurple; /* single line comment */
     text-decoration: underline;
+    text-align: center;
+}
+
+ul  {
+    list-style-type: square;
+}
+
+table {
+    padding: 25px;
+}
+
+th {
+    font-size: 1.25em;
+}
+
+td {
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color: darkmagenta;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:navy;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:chartreuse;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:white;
 }
