@@ -1,12 +1,12 @@
 :root {
-    --bg-info: #DFDEFF;
-    --text-info: #0802b7;
-    --bg-success: #DEFFF0;
-    --text-success: #21955f;
-    --bg-warning: #FEFFDE;
-    --text-warning: #9fa32e;
-    --bg-error: #FFDEED;
-    --text-error: #b90358;
+    --bg-info: #c7d7f7;
+    --text-info: #434097;
+    --bg-success: #c9ebd4;
+    --text-success: #126531;
+    --bg-warning: #f4f4c3;
+    --text-warning: #a59741;
+    --bg-error: #f2cdd1;
+    --text-error: #7b122e;
 }
 
 body, html {
