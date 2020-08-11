@@ -1,0 +1,70 @@
+:root {
+    --bg-info: #DFDEFF;
+    --text-info: #0802b7;
+    --bg-success: #DEFFF0;
+    --text-success: #21955f;
+    --bg-warning: #FEFFDE;
+    --text-warning: #9fa32e;
+    --bg-error: #FFDEED;
+    --text-error: #b90358;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+    color: #008000;
+}
+
+.message {
+    width: calc( 100% - 40px );
+    background-color: aquamarine;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* Using CSS variables*/
+.message-info {
+    background-color: var(--bg-info);
+    color: var(--text-info);
+}
+
+.message-success {
+    background-color: var(--bg-success);
+    color: var(--text-success);
+}
+
+.message-warning {
+    background-color: var(--bg-warning);
+    color: var(--text-warning);
+}
+
+.message-error {
+    background-color: var(--bg-error);
+    color: var(--text-error);
+}
+
+/* Using direct colors*/
+/*.message-info {*/
+/*    background-color: #DFDEFF;*/
+/*    color: #0802b7;*/
+/*}*/
+
+/*.message-success {*/
+/*    background-color: #DEFFF0;*/
+/*    color: #21955f;*/
+/*}*/
+
+/*.message-warning {*/
+/*    background-color: #FEFFDE;*/
+/*    color: #9fa32e;*/
+/*}*/
+
+/*.message-error {*/
+/*    background-color: #FFDEED;*/
+/*    color: #b90358;*/
+/*}*/
