@@ -27,16 +27,18 @@ a {
 }
 .top-nav {
     background: var(--light-bg);
-    /*width: 100%;*/
-    /*position: absolute;*/
+    width: 100%;
+    position: fixed;
+    z-index: 9001;
 }
 .nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 100%;
-    z-index: 1000;
-    position: fixed;
+    /*width: 100%;*/
+    /*z-index: 1000;*/
+    /*position: fixed;*/
+    /*Both of the above items were commented because I read the instructions improperly, these needed to be set in top-nav*/
     background-color: var(--light-bg);
 }
 .nav-link {
@@ -58,7 +60,8 @@ a {
 }
 .profile-image {
     position: absolute;
-    top: 235px;
+    top: 240px;
+/*    Adjusted above by 5px more, it got adjusted when I gave the 2em top margin on the main section*/
 }
 .profile-form {
     float: right;
@@ -74,7 +77,7 @@ a {
 }
 .profile-items {
     list-style-type: none;
-    padding-left: 0px;
+    padding: 0px;
 }
 .timeline {
     /*background: var(--light-bg);*/
