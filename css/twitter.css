@@ -27,11 +27,17 @@ a {
 }
 .top-nav {
     background: var(--light-bg);
+    /*width: 100%;*/
+    /*position: absolute;*/
 }
 .nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    background-color: var(--light-bg);
 }
 .nav-link {
     color: var(--main-link-color);
@@ -41,8 +47,62 @@ a {
 .nav-link:hover {
     color: var(--link-color);
 }
+.nav-item {
+    display: inline-block;
+    padding: 1em;
+    /*width: 100%; set the width on the .nav block above, setting it here gives each item in the class a full page width and makes them stack*/
+}
 .profile {
     background: var(--light-bg);
+    height: 80px;
+}
+.profile-image {
+    position: absolute;
+    top: 235px;
+}
+.profile-form {
+    float: right;
+    line-height: 80px;
+}
+.profile-details {
+    width: calc(25% - 1em);
+    margin: 0 .5em;
+    float: left;
+}
+.profile-entry {
+    margin: .5em;
+}
+.profile-items {
+    list-style-type: none;
+    padding-left: 0px;
+}
+.timeline {
+    /*background: var(--light-bg);*/
+    width: calc(50% - 1em);
+    margin: 0 .5em;
+    float: left;
+}
+.who-to-follow {
+    /*background: var(--light-bg);*/
+    width: calc(25% - 1em);
+    margin: 0 .5em;
+    float: right;
+}
+.media {
+    width: 100%;
+    background: var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
+    padding: .5em;
+    overflow: auto;
+}
+.media-image {
+    max-width: 50px;
+    float: left;
+    margin-top: 1.33em;
+}
+.media-body {
+    width: calc(100% - 50px);
+    float: right;
 }
 .btn {
     border: 1px solid var(--main-link-color);
@@ -51,6 +111,10 @@ a {
     font-weight: bold;
     padding: 8px;
     border-radius: 5px;
+}
+.container {
+    position: relative;
+    top: 2em;
 }
 .btn-large {
     font-size: 1.3em;
