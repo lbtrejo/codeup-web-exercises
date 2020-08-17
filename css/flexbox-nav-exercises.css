@@ -1,0 +1,73 @@
+/* Requirements
+-- DONE: box-sizing: border-box for all elements
+-- TODO: link text, the logo, and icons are surrounded by anchor tags
+-- TODO: links turn blue on hover
+-- TODO: anchor tags are display: inline-block
+-- TODO: clickable area of links immediately flow from one link to the next (padding will help achieve this)
+-- TODO: Google Fonts used for logo and link text ("Montserrat" and "Work Sans", respectively)
+-- TODO: the "Logo" text is 3em with .2em of padding above and below
+-- TODO: no explicit height given to the navbar
+-- TODO: default styling is removed as needed from the body, unordered list and anchor tag elements
+-- TODO: logo is absolutely positioned to completely center text on the navbar
+
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #0fb784;
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-container {
+    display: flex;
+    background-color: #bbbbbb;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: .2em 0;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links-left a, .nav-links-right a {
+    padding: 2em 0.5em;
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    display: inline-block;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #3B94D9;
+}
