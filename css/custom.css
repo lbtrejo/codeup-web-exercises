@@ -1,0 +1,10 @@
+.navbar a:hover {
+    background-color: #dfdfdf;
+}
+.jumbotron {
+    background-image: url("../img/pizza.png");
+}
+.jumbotron h1 {
+    background-color: lightgray;
+    text-align: center;
+}
