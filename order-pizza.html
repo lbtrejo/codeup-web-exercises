@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trejo's Homestyle Mexican Pizzaria</title>
+    <title>Trejo's Homestyle Mexican Pizzeria</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- Your custom css styles go here -->
     <link rel="stylesheet" href="css/custom.css">
@@ -42,26 +42,26 @@
         <h2>Build your own pizza!</h2>
     </div>
     <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs" id="buildPizza" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="size-crust-tab" data-toggle="tab" href="#size-crust-tab" role="tab" aria-controls="size-crust-tab" aria-selected="true">
+                <a class="nav-link" id="size-crust-tab" data-toggle="tab" href="#size-crust" role="tab" aria-controls="size-crust" aria-selected="false">
                     <span class="badge badge-pill badge-info">1</span>
                     Size and Crust
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="badge badge-pill badge-info">2</span>
+            <li class="nav-item active">
+                <a class="nav-link active" id="cheese-sauce-tab" data-toggle="tab" href="#cheese-sauce" role="tab" aria-controls="cheese-sauce" aria-selected="false"><span class="badge badge-pill badge-info">2</span>
                     Cheese and Sauce
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="badge badge-pill badge-info">3</span>
+                <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><span class="badge badge-pill badge-info">3</span>
                     Toppings
                 </a>
             </li>
         </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-content" id="buildPizzaOptions">
+            <div class="tab-pane fade" id="size-crust" role="tabpanel" aria-labelledby="size-crust-tab">
                 <div class="card">
                     <div class="card-header text-white bg-primary"> Choose size and crust</div>
                     <div class="card-body">
@@ -118,8 +118,63 @@
                         </div>
                     </div>
                 </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
+            <div class="tab-pane active" id="cheese-sauce" role="tabpanel" aria-labelledby="cheese-sauce-tab">
+                <div class="card">
+                    <div class="card-header text-white bg-primary">Choose Cheese and Sauce</div>
+                    <div class="card-body">
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">Cheese</div>
+                            <div class="card-body p-0">
+                                <div class="form-group p-3 m-0">
+                                    <label for="cheese-select">How Much?</label>
+                                    <select class="form-control" id="cheese-select">
+                                        <option>Light</option>
+                                        <option>Normal</option>
+                                        <option>Extra</option>
+                                        <option>Double</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">Sauce</div>
+                            <div class="card-body p-0">
+                                <div class="form-group p-3 m-0">
+                                    <label for="sauce-select">What Type?</label>
+                                    <select name="sauce-type" id="sauce-select" class="form-control">
+                                        <option value="tomato">Tomato sauce</option>
+                                        <option value="marinara">Marinara sauce</option>
+                                        <option value="bbq">BBQ sauce</option>
+                                        <option value="alfredo">Alfredo sauce</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-0 border-top">
+                                <div class="form-group p-3 m-0">
+                                    <label for="sauce-amount">How Much?</label>
+                                    <select name="sauce-amount" id="sauce-amount" class="form-control">
+                                        <option value="light">Light</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="extra">Extra</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-light">
+                                <div class="btn-group float-right" role="group" aria-label="Previous and Next buttons">
+                                    <button type="button" class="btn btn-primary float-right">< Previous Step</button>
+                                    <button type="button" class="btn btn-primary float-right">Next Step ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+                <div class="card">
+                    <div class="card-header text-white bg-primary">Choose Toppings</div>
+                </div>
+            </div>
         </div>
 
 
