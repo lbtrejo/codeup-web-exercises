@@ -42,15 +42,29 @@
         subHeader.style.color = "blue";
 
         // TODO: Uncomment the next line and get all list items
-        // var listItems = ;
+        var listItems = document.getElementsByTagName("li");
+        console.log("list items: ", listItems);
 
         // TODO: Set text color on every other list item to grey
+        for (var items = 0; items < listItems.length; items++) {
+            if (items % 2 === 0) {
+                continue;
+            }
+            listItems[items].style.color = "grey";
+        }
+
         // TODO: Set text color of li with dbid = 1 to blue
+        for (var dbItems = 0; dbItems < listItems.length; dbItems++) {
+            if (listItems[dbItems].getAttribute("data-dbid") === "1") {
+                listItems[dbItems].style.color = "blue";
+            }
+        }
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerText = "Mission Accomplished!"
     })();
 </script>
 </body>
