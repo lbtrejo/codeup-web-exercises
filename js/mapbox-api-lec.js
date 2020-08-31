@@ -90,22 +90,31 @@
 
 geocode('300 Alamo Plaza, San Antonio, Texas 78205', mapboxToken)
     .then(function(result){
-    console.log(result);
-    mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
+        console.log(result);
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        center: result, // starting position [lng, lat]; these coords are the codeup building in SATX
+        // center: result, // starting position [lng, lat]; these coords are the codeup building in SATX
         zoom: 10 // starting zoom
     });
+        //TODO: Using the geocode method above, add a marker at Codeup to the map
+        var markerColor = {
+            color: "#6de25b"
+        };
+        var marker = new mapboxgl.Marker(markerColor)
+            .setLngLat(result)
+            .addTo(map);
+
+        //TODO: Instead of setCenter try using map.jumpTo()
+
+        // map.jumpTo({center: result});
+
+        //TODO: Instead of setCenter try using map.flyTo()
+
+        map.flyTo({center: result});  // cool animation effect :)
+
 });
-
-
-
-//TODO: Using the geocode method above, add a marker at Codeup to the map
-//TODO: Instead of setCenter try using map.jumpTo()
-//TODO: Instead of setCenter try using map.flyTo()
-
 
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -96.8084, lat: 32.7799} to get a physical address for the Sixth Floor Musume
