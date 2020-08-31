@@ -15,13 +15,13 @@
 //TODO TOGETHER: Set map to Dallas area using the coordinates [-96.8057, 32.7787]
 // USING SATX COORDS BC EXTRA
 
-mapboxgl.accessToken = mapboxToken;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [-98.4916, 29.4260], // starting position [lng, lat]; these coords are the codeup building in SATX
-    zoom: 10 // starting zoom
-});
+// mapboxgl.accessToken = mapboxToken;
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+//     center: [-98.4916, 29.4260], // starting position [lng, lat]; these coords are the codeup building in SATX
+//     zoom: 10 // starting zoom
+// });
 
 //TODO: Experiment with different map styles, zoom levels, and centers. You will need to reference the mapbox docs. (~15 minutes)
 
@@ -37,13 +37,13 @@ var map = new mapboxgl.Map({
 // TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Museum on our map.
 // TODO TOGETHER: Change the color of the marker
 
-var markerColor = {
-    color: "#6de25b"
-}
-
-var marker = new mapboxgl.Marker(markerColor)
-    .setLngLat([-98.4916, 29.4260])
-    .addTo(map);
+// var markerColor = {
+//     color: "#6de25b"
+// }
+//
+// var marker = new mapboxgl.Marker(markerColor)
+//     .setLngLat([-98.4916, 29.4260])
+//     .addTo(map);
 
 
 
@@ -69,11 +69,11 @@ var marker = new mapboxgl.Marker(markerColor)
 
 // TODO TOGETHER: Comment out the popup we just added. Add a popup to the Sixth Floor Musume marker.
 
-var alamoPopup = new mapboxgl.Popup({anchor: "top-left"})
-    .setText("Remember The Alamo!")
-    .addTo(map)
-
-marker.setPopup(alamoPopup)
+// var alamoPopup = new mapboxgl.Popup({anchor: "top-left"})
+//     .setText("Remember The Alamo!")
+//     .addTo(map)
+//
+// marker.setPopup(alamoPopup)
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup?
 // TODO: Try setting the text by using ".setText()" instead of ".setHTML()"
@@ -88,7 +88,17 @@ marker.setPopup(alamoPopup)
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup. Comment out previous map code.
 
-
+geocode('300 Alamo Plaza, San Antonio, Texas 78205', mapboxToken)
+    .then(function(result){
+    console.log(result);
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: result, // starting position [lng, lat]; these coords are the codeup building in SATX
+        zoom: 10 // starting zoom
+    });
+});
 
 
 
