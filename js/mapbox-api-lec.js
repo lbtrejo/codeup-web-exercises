@@ -93,11 +93,11 @@ geocode('300 Alamo Plaza, San Antonio, Texas 78205', mapboxToken)
         console.log(result);
         mapboxgl.accessToken = mapboxToken;
         var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-        // center: result, // starting position [lng, lat]; these coords are the codeup building in SATX
-        zoom: 10 // starting zoom
-    });
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+            // center: result, // starting position [lng, lat]; these coords are the codeup building in SATX
+            zoom: 10 // starting zoom
+        });
         //TODO: Using the geocode method above, add a marker at Codeup to the map
         var markerColor = {
             color: "#6de25b"
@@ -114,13 +114,24 @@ geocode('300 Alamo Plaza, San Antonio, Texas 78205', mapboxToken)
 
         map.flyTo({center: result});  // cool animation effect :)
 
-});
+    });
+
+geocode('Mailgun San Antonio', mapboxToken)
+    .then(function(result){
+        console.log("Mailgun geocode: ", result);
+    })
 
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -96.8084, lat: 32.7799} to get a physical address for the Sixth Floor Musume
 
-
+reverseGeocode({lng: -96.8084, lat: 32.7799}, mapboxToken)
+    .then(function(result){
+        console.log("Reverse Geocode: ", result);
+    });
 
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
 
-
+reverseGeocode({lng: -98.4951, lat: 29.4246}, mapboxToken)
+    .then(function(result){
+        console.log("Reverse Mailgun Geocode: ", result);
+    });
