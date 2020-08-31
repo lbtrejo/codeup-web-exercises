@@ -45,3 +45,9 @@ restaurants.forEach(function(restaurant){
             marker.togglePopup(popup);
         });
 });
+
+let zoomSelect = document.getElementById("zoom-select");
+
+zoomSelect.addEventListener('change', function(event){
+    map.setZoom(event.target.value);
+});
