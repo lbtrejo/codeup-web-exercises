@@ -13,17 +13,15 @@
 // Zoom levels range from 0 up to 24, with 0 being a global view and 24 being the most detailed at street level (the max zoom level depends on the location).
 
 //TODO TOGETHER: Set map to Dallas area using the coordinates [-96.8057, 32.7787]
+// USING SATX COORDS BC EXTRA
 
 mapboxgl.accessToken = mapboxToken;
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [-96.8057, 32.7787], // starting position [lng, lat]
+    center: [-98.4916, 29.4260], // starting position [lng, lat]; these coords are the codeup building in SATX
     zoom: 10 // starting zoom
 });
-
-
-
 
 //TODO: Experiment with different map styles, zoom levels, and centers. You will need to reference the mapbox docs. (~15 minutes)
 
@@ -36,10 +34,16 @@ var map = new mapboxgl.Map({
 //Use the .setLngLat() and .addTo() methods to add marker to the map
 
 
-// TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Muesume on our map.
+// TODO TOGETHER: Add a marker to the map using the following coordinates [-96.8084, 32.7799]. This marker will mark the Sixth Floor Museum on our map.
 // TODO TOGETHER: Change the color of the marker
 
+var markerColor = {
+    color: "#6de25b"
+}
 
+var marker = new mapboxgl.Marker(markerColor)
+    .setLngLat([-98.4916, 29.4260])
+    .addTo(map);
 
 
 
@@ -57,11 +61,19 @@ var map = new mapboxgl.Map({
 
 // TODO TOGETHER: Add a popup to the map over codeup. Set the html as a paragraph that says "Codeup Rocks!"
 
-
+// var popup = new mapboxgl.Popup()
+//     .setLngLat([-98.489615, 29.426827])
+//     .setHTML("<p>Codeup Rocks!</p>")
+//     .addTo(map)
 
 
 // TODO TOGETHER: Comment out the popup we just added. Add a popup to the Sixth Floor Musume marker.
 
+var alamoPopup = new mapboxgl.Popup({anchor: "top-left"})
+    .setText("Remember The Alamo!")
+    .addTo(map)
+
+marker.setPopup(alamoPopup)
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup?
 // TODO: Try setting the text by using ".setText()" instead of ".setHTML()"
