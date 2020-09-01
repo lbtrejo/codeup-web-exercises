@@ -51,3 +51,29 @@ let zoomSelect = document.getElementById("zoom-select");
 zoomSelect.addEventListener('change', function(event){
     map.setZoom(event.target.value);
 });
+
+const mapThis = (event)=>{
+    event.preventDefault(); // stop the browser from refreshing the page on form submit
+    let userAddress = document.getElementById('userAddress').value;
+    geocode(userAddress, mapboxToken)
+        .then(function(result){
+            let map2 = new mapboxgl.Map({
+                container: 'map2',
+                style: 'mapbox://styles/mapbox/dark-v10',
+                center: result,
+                zoom: 13
+            });
+            let marker = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map2);
+            let popup = new mapboxgl.Popup({anchor: 'top'})
+                .setText(userAddress.toString())
+                .addTo(map2);
+            marker.setPopup(popup);
+            marker.togglePopup(popup);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById("formSubmit").addEventListener('click', mapThis);
+})
