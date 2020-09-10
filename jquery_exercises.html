@@ -8,11 +8,11 @@
     <div class="container" id="title-container">
         <h1>jQuery Exercise</h1>
     </div>
-    <div class="container" id="blog-post">
+    <div class="container " id="codeup">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci at aut commodi consectetur cupiditate dolorum est et neque pariatur, quam repellendus saepe voluptatum! Autem exercitationem iure nostrum officiis. Cumque.</p>
         <ul>
-            <li class="rant" id="rant-1">Rant 1</li>
-            <li class="rant" id="rant-2">Rant 2</li>
+            <li class="codeup" id="rant-1">Rant 1</li>
+            <li class="codeup" id="rant-2">Rant 2</li>
             <li class="rant" id="rant-3">Rant 3</li>
         </ul>
     </div>
@@ -22,15 +22,7 @@
     <script>
         "use strict";
 
-        $(document).ready(function() {
-            alert("Aw yeah, we cookin' with jQuery now!")
-        })
-
-        var titleContent = $("#title-container").text();
-        alert(titleContent);
-
-        var rantOneContent = $("#rant-1").text();
-        alert(rantOneContent);
+        $(".codeup").css("border", "1px solid red");
 
     </script>
 </body>
