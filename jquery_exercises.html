@@ -5,9 +5,18 @@
     <title>jQuery Exercise</title>
 </head>
 <body>
-    <h1>jQuery Exercise</h1>
-    <br>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci at aut commodi consectetur cupiditate dolorum est et neque pariatur, quam repellendus saepe voluptatum! Autem exercitationem iure nostrum officiis. Cumque.</p>
+    <div class="container" id="title-container">
+        <h1>jQuery Exercise</h1>
+    </div>
+    <div class="container" id="blog-post">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci at aut commodi consectetur cupiditate dolorum est et neque pariatur, quam repellendus saepe voluptatum! Autem exercitationem iure nostrum officiis. Cumque.</p>
+        <ul>
+            <li class="rant" id="rant-1">Rant 1</li>
+            <li class="rant" id="rant-2">Rant 2</li>
+            <li class="rant" id="rant-3">Rant 3</li>
+        </ul>
+    </div>
+
 
     <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script>
@@ -17,9 +26,12 @@
             alert("Aw yeah, we cookin' with jQuery now!")
         })
 
-        // window.onload = function() {
-        //     alert( 'The page has finished loading!' );
-        // }
+        var titleContent = $("#title-container").text();
+        alert(titleContent);
+
+        var rantOneContent = $("#rant-1").text();
+        alert(rantOneContent);
+
     </script>
 </body>
 </html>
