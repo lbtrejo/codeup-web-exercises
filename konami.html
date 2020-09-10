@@ -4,15 +4,45 @@
     <title>Konami Code</title>
 </head>
 <body>
-<h1>Konami Code</h1>
+    <h1>Konami Code</h1>
+    <br>
+    <p>Alerts</p>
+    <p id="current-code"></p>
+    <p id="alert-message"></p>
 
-<script src="/js/jquery.js"></script>
+<button id="clear-btn">Clear Code</button>
+
+<script src="js/jquery.js"></script>
 <script>
     "use strict";
 
+    const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    let userCode = [];
+
+    function clearCode() {
+        $("#alert-message").text("Code Cleared");
+        $("#current-code").text("");
+        return userCode = [];
+    }
+
+    function arrayEquals(a, b) {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, index) => val === b[index]);
+    }
+
     $(document).keyup(function(event){
         console.log(event.keyCode);
+        userCode.push(event.keyCode);
+        $("#current-code").text(userCode);
+        if (arrayEquals(konamiCode, userCode)) {
+            $("#alert-message").text("You have added 30 lives!")
+        }
     });
+
+    $("#clear-btn").click(clearCode);
+
 </script>
 </body>
 </html>
