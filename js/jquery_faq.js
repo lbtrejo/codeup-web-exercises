@@ -19,6 +19,11 @@ $(document).ready(function() {
 
     $("h3").click(function(){
         $(this).next().children("li").css("font-weight", "bold");
-        console.log(event);
+        // better solution is to toggle a class for this, since it's easier to scale/manage
+    })
+
+    $("li").click(function(){
+        $(this).parent().children("li").first().css("color", "blue");
+        // better solution is to toggle a class for this, since it's easier to scale/manage
     })
 })
