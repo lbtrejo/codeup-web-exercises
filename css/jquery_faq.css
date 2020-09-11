@@ -34,3 +34,6 @@
 .custom-tan-bg {
     background-color: #F2CEAA
 }
+.invisible-custom {
+    visibility: hidden;
+}
