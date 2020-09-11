@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <script src="https://kit.fontawesome.com/b0a4580134.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Konami Code</h1>
+    <br>
+    <p>Alerts</p>
+    <div>
+        <i id="icon-0" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-1" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-2" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-3" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-4" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-5" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-6" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-7" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-8" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-9" class="fas fa-gamepad fa-3x"></i>
+        <i id="icon-10" class="fas fa-gamepad fa-3x"></i>
+    </div>
+    <p id="current-code"></p>
+    <p id="alert-message"></p>
+
+<button id="clear-btn">Clear Code</button>
+
+<script src="js/jquery.js"></script>
+<script>
+    "use strict";
+
+    const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+    let userCode = [];
+    // let questionIcon = "<i class=\"far fa-question-circle\"></i>";
+    // let greenCheck = "<i class=\"fas fa-heart\"></i>";
+    // let redX = "<i class=\"fas fa-skull\"></i>";
+
+    function clearCode() {
+        $("#alert-message").text("Code Cleared");
+        $("#current-code").text("");
+        return userCode = [];
+    }
+
+    function arrayEquals(a, b) {
+        return Array.isArray(a) &&
+            Array.isArray(b) &&
+            a.length === b.length &&
+            a.every((val, index) => val === b[index]);
+    }
+
+    function assignGreenCheck(icon){
+        $(icon).css("color", "green");
+    }
+
+    function checkElements(userArray) {
+        for (let i = 0; i > userArray.length; i++) {
+            if (userArray[i] === konamiCode[i]) {
+                console.log(userArray[i])
+                assignGreenCheck("#icon-" + i);
+            }
+        }
+    }
+
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+        userCode.push(event.keyCode);
+        $("#current-code").text(userCode);
+        checkElements(userCode);
+        if (arrayEquals(konamiCode, userCode)) {
+            $("#alert-message").text("You have added 30 lives!")
+        }
+    });
+
+    $("#clear-btn").click(clearCode);
+
+</script>
+</body>
+</html>
