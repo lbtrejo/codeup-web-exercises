@@ -11,23 +11,29 @@
     <title>Online Store</title>
 </head>
 <body>
+    <div class="container-fluid" id="main-container">
+        <div class="jumbotron jumbotron-fluid bg-info" id="jumbo-title">
+            <h1 class="display-4 text-center text-white">My Tool Store</h1>
+        </div>
+        <div class="container">
+            <table id="products" class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Categories</th>
+                </tr>
+                </thead>
+                <tbody id="insertProducts"></tbody>
+            </table>
+        </div>
 
-<h1>My Tool Store</h1>
-<table id="products">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Categories</th>
-    </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-
-</table>
-<br>
-<button id="refresh-btn">Refresh Inventory</button>
-
+        <br>
+        <div class="container-fluid d-flex justify-content-center">
+            <button id="refresh-btn" class="btn btn-lg btn-info">Refresh Inventory</button>
+        </div>
+    </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -55,7 +61,7 @@
                 data.forEach(function(element){
                     let tbodyHTML = "";
 
-                    tbodyHTML += "<tr>"
+                    tbodyHTML += "<tr scope='row'>"
                     tbodyHTML += "<td>"+element.title+"</td>"
                     tbodyHTML += "<td>"+element.quantity+"</td>"
                     tbodyHTML += "<td>"+element.price+"</td>"
