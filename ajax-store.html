@@ -6,7 +6,6 @@
 <body>
 
 <h1>My Tool Store</h1>
-
 <table id="products">
     <thead>
         <tr>
@@ -17,48 +16,50 @@
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
+
 </table>
+<br>
+<button id="refresh-btn">Refresh Inventory</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
-(function() {
-    "use strict";
-    // TODO: Create an AJAX GET request for the file under data/inventory.json
-    let storeURL = "data/inventory.json"
-    let storeData = $.get(storeURL)
+    (function() {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+        let storeURL = "data/inventory.json"
+        let tableBody = $("#insertProducts");
 
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    storeData.done(function(data, status){
-        console.log("status: ", status);
-        console.log("data: ", data)
-    })
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
 
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-    storeData.done(function(data){
-        data.forEach(function(element){
-            console.log(element);
-            let tbodyHTML = "";
-            tbodyHTML += "<tr>"
-            tbodyHTML += "<td>"+element.title+"</td>"
-            tbodyHTML += "<td>"+element.quantity+"</td>"
-            tbodyHTML += "<td>"+element.price+"</td>"
-            tbodyHTML += "<td>Categories Array</td>"
-            tbodyHTML += "</tr>"
+        function getData(){
+            let storeData = $.get(storeURL);
+            tableBody.html("");
+            storeData.done(function(data){
+                data.forEach(function(element){
+                    let tbodyHTML = "";
 
-            $("#insertProducts").append(tbodyHTML);
+                    tbodyHTML += "<tr>"
+                    tbodyHTML += "<td>"+element.title+"</td>"
+                    tbodyHTML += "<td>"+element.quantity+"</td>"
+                    tbodyHTML += "<td>"+element.price+"</td>"
+                    tbodyHTML += "<td>["+element.categories.join(", ")+"]</td>"
+                    tbodyHTML += "</tr>"
 
-        })
-        // tableHTML += "<thead><tr>"
-        // tableHTML += "<th>"+data[i].title+"</th>"
-        // tableHTML += "</thead></tr>"
-    })
+                    tableBody.append(tbodyHTML);
+                })
+            })
+        }
 
-})();
+        getData();
+
+        $("#refresh-btn").click(getData);
+
+    })();
 </script>
-
 </body>
 </html>
