@@ -1,3 +1,10 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+.heading-font {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 .cowboys-lt-blue-bg {
     background-color: #003594;
 }
