@@ -35,8 +35,11 @@ $(document).ready(function() {
         $("#newsletter-container").fadeOut(750);
     })
 
-    window.setTimeout(function(){
-        $("#registration-container").fadeIn(1500)
-    }, 8000)
+    // window.setTimeout(function(){
+    //     $("#registration-container").fadeIn(1500)
+    // }, 8000)
+    // Deprecated in order to use jquery delay functionality below
+
+    $("#registration-container").delay(8000).fadeIn(1500)
 
 })
