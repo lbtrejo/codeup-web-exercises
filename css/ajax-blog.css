@@ -1,0 +1,25 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+.heading-font {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.cowboys-lt-blue-bg {
+    background-color: #003594;
+}
+.cowboys-dk-blue-bg {
+    background-color: #041E42;
+}
+.cowboys-silver-bg {
+    background-color: #869397;
+}
+.cowboys-lt-blue {
+    color: #003594;
+}
+.cowboys-dk-blue {
+    color: #041E42;
+}
+.cowboys-silver {
+    color: #869397;
+}
