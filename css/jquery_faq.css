@@ -37,3 +37,18 @@
 .invisible-custom {
     visibility: hidden;
 }
+.frame-bg-1 {
+    width: 250px;
+    height: 250px;
+    background-image: url("../img/square_1.jpg");
+}
+.frame-bg-2 {
+    width: 250px;
+    height: 250px;
+    background-image: url("../img/square_2.jpg");
+}
+.frame-bg-3 {
+    width: 250px;
+    height: 250px;
+    background-image: url("../img/square_3.jpg");
+}
