@@ -16,5 +16,15 @@
             "sugar"
         ],
         "date": "February 14, 2015"
-    }
+    }, {
+    "title": "The Newest Post",
+    "content": "The buildup to the Cowboys' season opener was palpable but it ended in disappointment for Dallas, a 20-17 loss to the Los Angeles Rams at SoFi Stadium on Sunday night.",
+    "categories": [
+        "loss",
+        "rams",
+        "zeke",
+        "mccarthy"
+    ],
+    "date": "September 14, 2020"
+}
 ]
