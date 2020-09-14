@@ -30,5 +30,20 @@
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "Wrench",
+        "quantity": 15,
+        "categories": [
+            "tool"
+        ],
+        "price": 12
+    }, {
+        "title": "Rake",
+        "quantity": 13,
+        "categories": [
+            "tool",
+            "outdoor"
+        ],
+        "price": 15
     }
 ]

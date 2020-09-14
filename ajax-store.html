@@ -8,14 +8,14 @@
 <h1>My Tool Store</h1>
 
 <table id="products">
-<!--    <thead>-->
-<!--        <tr>-->
-<!--            <th>Title</th>-->
-<!--            <th>Quantity</th>-->
-<!--            <th>Price</th>-->
-<!--            <th>Categories</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
     <tbody id="insertProducts"></tbody>
 </table>
 
@@ -41,16 +41,16 @@
     storeData.done(function(data){
         data.forEach(function(element){
             console.log(element);
-            let tableHTML = "";
-            tableHTML += "<thead><tr>"
-            tableHTML += "<th>"+element.title+"</th>"
-            tableHTML += "<th>"+element.quantity+"</th>"
-            tableHTML += "<th>"+element.price+"</th>"
-            tableHTML += "<th>Categories Array</th>"
-            tableHTML += "</thead></tr>"
+            let tbodyHTML = "";
+            tbodyHTML += "<tr>"
+            tbodyHTML += "<td>"+element.title+"</td>"
+            tbodyHTML += "<td>"+element.quantity+"</td>"
+            tbodyHTML += "<td>"+element.price+"</td>"
+            tbodyHTML += "<td>Categories Array</td>"
+            tbodyHTML += "</tr>"
 
-            $("#insertProducts").append(tableHTML);
-            
+            $("#insertProducts").append(tbodyHTML);
+
         })
         // tableHTML += "<thead><tr>"
         // tableHTML += "<th>"+data[i].title+"</th>"
