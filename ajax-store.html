@@ -8,14 +8,14 @@
 <h1>My Tool Store</h1>
 
 <table id="products">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
-        </tr>
-    </thead>
+<!--    <thead>-->
+<!--        <tr>-->
+<!--            <th>Title</th>-->
+<!--            <th>Quantity</th>-->
+<!--            <th>Price</th>-->
+<!--            <th>Categories</th>-->
+<!--        </tr>-->
+<!--    </thead>-->
     <tbody id="insertProducts"></tbody>
 </table>
 
@@ -25,11 +25,38 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+    let storeURL = "data/inventory.json"
+    let storeData = $.get(storeURL)
+
 
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
+    storeData.done(function(data, status){
+        console.log("status: ", status);
+        console.log("data: ", data)
+    })
+
     //       HINT: You will want to target #insertProducts for your new HTML elements
+    storeData.done(function(data){
+        data.forEach(function(element){
+            console.log(element);
+            let tableHTML = "";
+            tableHTML += "<thead><tr>"
+            tableHTML += "<th>"+element.title+"</th>"
+            tableHTML += "<th>"+element.quantity+"</th>"
+            tableHTML += "<th>"+element.price+"</th>"
+            tableHTML += "<th>Categories Array</th>"
+            tableHTML += "</thead></tr>"
+
+            $("#insertProducts").append(tableHTML);
+            
+        })
+        // tableHTML += "<thead><tr>"
+        // tableHTML += "<th>"+data[i].title+"</th>"
+        // tableHTML += "</thead></tr>"
+    })
+
 })();
 </script>
 
