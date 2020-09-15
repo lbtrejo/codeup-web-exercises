@@ -2,6 +2,8 @@
     "use strict";
 
     let blogData = "data/blog.json"
+    // let audioElement = document.createElement('audio');
+    // audioElement.setAttribute('src', '../assets/cowboys.mp3')
 
     function fetchData(){
         $.get(blogData).done(function(data){
@@ -31,7 +33,9 @@
         buildPosts();
     });
 
-
+    $("#star").click(function(){
+        $("#jimmy-cowboys")[0].play();
+    })
 })();
 
 
