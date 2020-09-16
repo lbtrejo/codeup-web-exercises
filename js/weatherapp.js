@@ -2,15 +2,16 @@
     "use strict";
 
     const onecallURL = 'https://api.openweathermap.org/data/2.5/onecall';
+    const homeCoords = [-98.4951, 29.4246];
 
-    function getCurrentData(){
+    function getCurrentData(lon, lat){
         return new Promise((resolve) => {
             $.ajax({
                 url: onecallURL,
                 type: 'GET',
                 data: {
-                    lat: 29.42,
-                    lon: -98.49,
+                    lat: lat,
+                    lon: lon,
                     appid: owmKey,
                     units: "imperial",
                     exclude: "minutely, hourly, daily"
@@ -38,14 +39,14 @@
             return resultCurrent;
     }
 
-    function getForecastData(){
+    function getForecastData(lon, lat){
         return new Promise((resolve) => {
             $.ajax({
                 url: onecallURL,
                 type: 'GET',
                 data: {
-                    lat: 29.42,
-                    lon: -98.49,
+                    lat: lat,
+                    lon: lon,
                     appid: owmKey,
                     units: "imperial",
                     exclude: "minutely, hourly, current"
@@ -89,7 +90,7 @@
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ currentObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
-            $("#data-testing").append(cardHTML)
+            $("#card-container").append(cardHTML)
     }
 
     function buildForecastCards(forecastArray){
@@ -105,23 +106,52 @@
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ forecastObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
-            $("#data-testing").append(cardHTML)
+            $("#card-container").append(cardHTML)
         })
     }
 
+    function buildMap(lon, lat){
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/streets-v9",
+            zoom: 10,
+            center: [lon, lat]
+        })
+    }
+    $("#search-btn").click(function(event){
+        event.preventDefault();
+        let userInput = $("#search-input").val();
+        console.log(userInput);
+        let coordinates = [];
+
+        geocode(userInput, mapboxToken)
+            .then(function(result){
+                console.log("result: ", result);
+                buildMap(result[0], result[1]);
+                getCurrentData(result[0], result[1])
+                    .then((data) => {
+                        let currentObject = formatCurrentData(data);
+                        $("#card-container").empty();
+                        buildCurrentCard(currentObject);
+                    })
+            })
+    })
+
     $(document).ready(function(){
         console.log("ready");
-        getCurrentData()
+        getCurrentData(homeCoords[0], homeCoords[1])
             .then((data) => {
                 let currentObject = formatCurrentData(data);
                 buildCurrentCard(currentObject);
             })
         // TODO Current weather may load in after forecast, fix placement in HTML
-        getForecastData()
+        getForecastData(homeCoords[0], homeCoords[1])
             .then((data) => {
                 let forecastArray = formatForecastData(data);
                 console.log("Forecast Array: ", forecastArray);
                 buildForecastCards(forecastArray);
             })
+        buildMap(homeCoords[0], homeCoords[1]);
     })
 })();
