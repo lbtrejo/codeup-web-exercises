@@ -89,9 +89,26 @@
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ currentObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
-            $("#data-testing").append(cardHTML);
-            // })
+            $("#data-testing").append(cardHTML)
     }
+
+    function buildForecastCards(forecastArray){
+        forecastArray.forEach(function(forecastObject){
+            let cardHTML = "";
+            cardHTML += "<div class='card m-2'>"
+            cardHTML += "<div class='card-header bg-success'>"+ forecastObject.date +"</div>"
+            cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
+            cardHTML += "<div class='card-body'>";
+            cardHTML += "<h5 class='text-center pb-3'>Low: "+ parseInt(forecastObject.mintemp) +" °F / High: " + parseInt(forecastObject.maxtemp) + " °F</h5>"
+            cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ forecastObject.description +"</span></p>"
+            cardHTML += "<p class='card-text'>Pressure: <span class='font-weight-bold'>"+ parseInt(forecastObject.pressure) + "</span></p>"
+            cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ forecastObject.humidity +"%</span></p>"
+            cardHTML += "</div>"
+
+            $("#data-testing").append(cardHTML)
+        })
+    }
+
     $(document).ready(function(){
         console.log("ready");
         getCurrentData()
@@ -99,24 +116,12 @@
                 let currentObject = formatCurrentData(data);
                 buildCurrentCard(currentObject);
             })
+        // TODO Current weather may load in after forecast, fix placement in HTML
         getForecastData()
             .then((data) => {
                 let forecastArray = formatForecastData(data);
                 console.log("Forecast Array: ", forecastArray);
+                buildForecastCards(forecastArray);
             })
     })
-
 })();
-
-
-
-
-
-// <div class="card">
-//     <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-//         <div class="card-body">
-//             <h5 class="card-title">Card title</h5>
-//             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//             <a href="#" class="btn btn-primary">Go somewhere</a>
-//         </div>
-// </div>
