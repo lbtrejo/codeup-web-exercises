@@ -82,7 +82,7 @@
             let cardHTML = "";
             cardHTML += "<div class='card m-2'>"
             cardHTML += "<div class='card-header bg-success'>Today's Weather</div>"
-            cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
+            cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
             cardHTML += "<h5 class='text-center pb-3'>Currently: "+ parseInt(currentObject.temp) +" °F</h5>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ currentObject.description +"</span></p>"
@@ -98,7 +98,7 @@
             let cardHTML = "";
             cardHTML += "<div class='card m-2'>"
             cardHTML += "<div class='card-header bg-success'>"+ forecastObject.date +"</div>"
-            cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
+            cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
             cardHTML += "<h5 class='text-center pb-3'>Low: "+ parseInt(forecastObject.mintemp) +" °F / High: " + parseInt(forecastObject.maxtemp) + " °F</h5>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ forecastObject.description +"</span></p>"

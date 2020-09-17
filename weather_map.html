@@ -16,20 +16,21 @@
 <body>
     <div class="container-fluid p-0 bg-secondary" id="main-container">
         <div class="container-fluid bg-success" id="nav-container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-light bg-success">
+                <a class="navbar-brand" href="#">Minty Fresh Weather</a>
+<!--                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+                <div class="navbar-nav" id="navbarSupportedContent">
+<!--                    <ul class="navbar-nav mr-auto">-->
+<!--                        <li class="nav-item active">-->
+<!--                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" href="#">Link</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+                    <span class="navbar-text" id="current-text">Current City: <span class="navbar-text font-weight-bold" id="current-city">San Antonio, Texas</span></span>
                 </div>
             </nav>
         </div>
@@ -42,6 +43,13 @@
             </div>
             <div class="container mt-3" id="card-container"></div>
             <div class="container mt-3 p-3" id="map"></div>
+        </div>
+        <div class="container-fluid mt-3 p-0" id="footer-container">
+            <footer class="bg-success" id="footer">
+                <div class="container">
+                    <p class="text-center">Footer</p>
+                </div>
+            </footer>
         </div>
     </div>
 
