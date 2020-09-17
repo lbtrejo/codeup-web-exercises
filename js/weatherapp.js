@@ -80,7 +80,7 @@
 
     function buildCurrentCard(currentObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2'>"
+            cardHTML += "<div class='card m-2 col-12'>"
             cardHTML += "<div class='card-header bg-success'>Today's Weather</div>"
             cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
@@ -90,13 +90,13 @@
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ currentObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
-            $("#card-container").append(cardHTML)
+            $("#current-row").append(cardHTML)
     }
 
     function buildForecastCards(forecastArray){
         forecastArray.forEach(function(forecastObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2'>"
+            cardHTML += "<div class='card m-2 col-12 col-md-5'>"
             cardHTML += "<div class='card-header bg-success'>"+ forecastObject.date +"</div>"
             cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
@@ -106,7 +106,7 @@
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ forecastObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
-            $("#card-container").append(cardHTML)
+            $("#forecast-row").append(cardHTML)
         })
     }
 
@@ -130,8 +130,14 @@
                 getCurrentData(result[0][0], result[0][1])
                     .then((data) => {
                         let currentObject = formatCurrentData(data);
-                        $("#card-container").empty();
+                        $("#current-row").empty();
                         buildCurrentCard(currentObject);
+                    })
+                getForecastData(result[0][0], result[0][1])
+                    .then((data) => {
+                        let forecastArray = formatForecastData(data);
+                        $("#forecast-row").empty();
+                        buildForecastCards(forecastArray);
                     })
             })
     })
