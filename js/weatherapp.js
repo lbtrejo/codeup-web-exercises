@@ -122,14 +122,12 @@
     $("#search-btn").click(function(event){
         event.preventDefault();
         let userInput = $("#search-input").val();
-        console.log(userInput);
-        let coordinates = [];
 
         geocode(userInput, mapboxToken)
             .then(function(result){
-                console.log("result: ", result);
-                buildMap(result[0], result[1]);
-                getCurrentData(result[0], result[1])
+                $("#current-city").empty().text(result[1])
+                buildMap(result[0][0], result[0][1]);
+                getCurrentData(result[0][0], result[0][1])
                     .then((data) => {
                         let currentObject = formatCurrentData(data);
                         $("#card-container").empty();
