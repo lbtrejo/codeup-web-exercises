@@ -43,6 +43,7 @@ const users = [
 // })
 
 let threeLangs = users.filter((element) => {return element.languages.length > 2})
+
 console.log("Users with Three Languages or more: ", threeLangs);
 
 // let userEmails = users.map(function(element){
@@ -50,6 +51,7 @@ console.log("Users with Three Languages or more: ", threeLangs);
 // })
 
 let userEmails = users.map((element) => element.email);
+
 console.log("User simplified emails: ", userEmails)
 
 // let totalYears = users.reduce(function(currentTotal, user){
@@ -60,3 +62,13 @@ let totalYears = users.reduce((currentTotal, user) => { return currentTotal + us
 
 console.log("Total Years: ", totalYears);
 console.log("Average experience: ", (totalYears / users.length))
+
+let longestEmail = users.reduce((longest, user) => {
+    if (user.email.length > longest.length){
+        return user.email;
+    } else {
+        return longest
+    }
+}, "")
+
+console.log("Longest Email: ", longestEmail);
