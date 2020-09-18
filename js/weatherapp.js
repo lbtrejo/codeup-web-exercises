@@ -50,7 +50,6 @@
                 sunrise: new Date(data.current.sunrise * 1000).toLocaleTimeString(),
                 sunset: new Date(data.current.sunset * 1000).toLocaleTimeString()
             };
-        console.log("Result Current: ", resultCurrent);
         return resultCurrent;
     }
 
