@@ -38,8 +38,16 @@ const users = [
     }
 ];
 
-let threeLangs = users.filter(function(element){
-    return element.languages.length > 2;
-})
+// let threeLangs = users.filter(function(element){
+//     return element.languages.length > 2;
+// })
 
-console.log(threeLangs);
+let threeLangs = users.filter((element) => {return element.languages.length > 2})
+console.log("Users with Three Languages or more: ", threeLangs);
+
+// let userEmails = users.map(function(element){
+//     return element.email;
+// })
+
+let userEmails = users.map((element) => element.email);
+console.log("User simplified emails: ", userEmails)
