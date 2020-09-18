@@ -1,4 +1,28 @@
 #map {
     width: 90%;
-    height: 35vh;
+    height: 45vh;
+}
+.bg-mint {
+    background-color: #AEFFE2;
+}
+.bg-lavender {
+    background-color: #B9AEFF;
+}
+.bg-peach {
+    background-color: #FFAECB;
+}
+.bg-sun {
+    background-color: #F4FFAE;
+}
+.text-mint {
+    color: #AEFFE2;
+}
+.text-lavender {
+    color: #B9AEFF;
+}
+.text-peach {
+    color: #FFAECB;
+}
+.text-sun {
+    color: #F4FFAE;
 }

@@ -88,11 +88,11 @@
 
     function buildCurrentCard(currentObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2 col-12 p-0'>"
-            cardHTML += "<div class='card-header bg-success'>Today's Weather</div>"
-            cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
+            cardHTML += "<div class='card bg-sun m-2 col-12 p-0'>"
+            cardHTML += "<div class='card-header bg-mint'><i class='fas fa-calendar-day text-peach'></i>  Today's Weather</div>"
+            cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto mt-2' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
-            cardHTML += "<h5 class='text-center pb-3'>Currently: "+ parseInt(currentObject.temp) +" °F</h5>"
+            cardHTML += "<h6 class='text-center pb-3'>Currently: <span class='font-weight-bold'>"+ parseInt(currentObject.temp) +" °F</span></h6>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ currentObject.description +"</span></p>"
             cardHTML += "<p class='card-text'>Feels like: <span class='font-weight-bold'>"+ parseInt(currentObject.feels) +" °F</span></p>"
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ currentObject.humidity +"%</span></p>"
@@ -104,11 +104,11 @@
     function buildForecastCards(forecastArray){
         forecastArray.forEach(function(forecastObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2 col-12 col-md-5 p-0'>"
-            cardHTML += "<div class='card-header bg-success'>"+ forecastObject.date +"</div>"
-            cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
-            cardHTML += "<div class='card-body'>";
-            cardHTML += "<h5 class='text-center pb-3'>Low: "+ parseInt(forecastObject.mintemp) +" °F / High: " + parseInt(forecastObject.maxtemp) + " °F</h5>"
+            cardHTML += "<div class='card m-2 col-12 col-md-5 p-0 bg-sun'>"
+            cardHTML += "<div class='card-header bg-mint'><i class='fas fa-calendar-day text-peach'></i>  "+ forecastObject.date +"</div>"
+            cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto mt-2' style='max-width: 50%; height: auto;' alt='weather icon'>";
+            cardHTML += "<div class='card-body mt-1'>";
+            cardHTML += "<h6 class='text-center pb-3'>Low: <span class='font-weight-bold'>"+ parseInt(forecastObject.mintemp) +" °F</span> / High: <span class='font-weight-bold'>" + parseInt(forecastObject.maxtemp) + " °F</span></h6>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ forecastObject.description +"</span></p>"
             cardHTML += "<p class='card-text'>Pressure: <span class='font-weight-bold'>"+ parseInt(forecastObject.pressure) + "</span></p>"
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ forecastObject.humidity +"%</span></p>"
