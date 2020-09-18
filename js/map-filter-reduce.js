@@ -82,3 +82,4 @@ let singleString = users.reduce((accumulator, currentValue, index) => {
 }, "Your instructors are:")
 
 console.log("String interpolation: ", singleString);
+
