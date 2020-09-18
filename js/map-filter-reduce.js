@@ -51,3 +51,12 @@ console.log("Users with Three Languages or more: ", threeLangs);
 
 let userEmails = users.map((element) => element.email);
 console.log("User simplified emails: ", userEmails)
+
+// let totalYears = users.reduce(function(currentTotal, user){
+//     return currentTotal + user.yearsOfExperience;
+// }, 0);
+
+let totalYears = users.reduce((currentTotal, user) => { return currentTotal + user.yearsOfExperience }, 0)
+
+console.log("Total Years: ", totalYears);
+console.log("Average experience: ", (totalYears / users.length))
