@@ -38,3 +38,8 @@ const users = [
     }
 ];
 
+let threeLangs = users.filter(function(element){
+    return element.languages.length > 2;
+})
+
+console.log(threeLangs);
