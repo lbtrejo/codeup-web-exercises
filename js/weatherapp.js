@@ -88,7 +88,7 @@
 
     function buildCurrentCard(currentObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2 col-12'>"
+            cardHTML += "<div class='card m-2 col-12 p-0'>"
             cardHTML += "<div class='card-header bg-success'>Today's Weather</div>"
             cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
@@ -104,7 +104,7 @@
     function buildForecastCards(forecastArray){
         forecastArray.forEach(function(forecastObject){
             let cardHTML = "";
-            cardHTML += "<div class='card m-2 col-12 col-md-5'>"
+            cardHTML += "<div class='card m-2 col-12 col-md-5 p-0'>"
             cardHTML += "<div class='card-header bg-success'>"+ forecastObject.date +"</div>"
             cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
@@ -173,7 +173,24 @@
         map.on('click', function(e) {
 // The event object (e) contains information like the
 // coordinates of the point on the map that was clicked.
-            console.log('A click event has occurred at ' + e.lngLat);
+            console.log('Lat: ' + e.lngLat.lat);
+            console.log('Lon: ' + e.lngLat.lng);
+            console.log(e);
+            // $("#current-city").empty().text(result[1])
+            setMarker(e.lngLat.lng, e.lngLat.lat);
+            // mapFly(result[0][0], result[0][1])
+            // getCurrentData(result[0][0], result[0][1])
+            //     .then((data) => {
+            //         let currentObject = formatCurrentData(data);
+            //         $("#current-row").empty();
+            //         buildCurrentCard(currentObject);
+            //     })
+            // getForecastData(result[0][0], result[0][1])
+            //     .then((data) => {
+            //         let forecastArray = formatForecastData(data);
+            //         $("#forecast-row").empty();
+            //         buildForecastCards(forecastArray);
+            //     })
         });
     })
 })();
