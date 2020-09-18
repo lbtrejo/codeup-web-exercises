@@ -12,6 +12,10 @@
         center: [homeCoords[0], homeCoords[1]]
     })
 
+    let marker = new mapboxgl.Marker()
+        .setLngLat([homeCoords[0], homeCoords[1]])
+        .addTo(map);
+
     function getCurrentData(lon, lat){
         return new Promise((resolve) => {
             $.ajax({
@@ -119,7 +123,8 @@
     }
 
     function setMarker(lon, lat){
-        let marker = new mapboxgl.Marker()
+        marker.remove();
+        marker = new mapboxgl.Marker()
             .setLngLat([lon, lat])
             .addTo(map);
     }
@@ -161,14 +166,13 @@
                 let currentObject = formatCurrentData(data);
                 buildCurrentCard(currentObject);
             })
-        // TODO Current weather may load in after forecast, fix placement in HTML
         getForecastData(homeCoords[0], homeCoords[1])
             .then((data) => {
                 let forecastArray = formatForecastData(data);
                 console.log("Forecast Array: ", forecastArray);
                 buildForecastCards(forecastArray);
             })
-        setMarker(homeCoords[0], homeCoords[1]);
+        // setMarker(homeCoords[0], homeCoords[1]);
 
         map.on('click', function(e) {
 // The event object (e) contains information like the
@@ -176,21 +180,28 @@
             console.log('Lat: ' + e.lngLat.lat);
             console.log('Lon: ' + e.lngLat.lng);
             console.log(e);
+            reverseGeocode({lat: e.lngLat.lat, lng: e.lngLat.lng}, mapboxToken)
+                .then((data) => {
+                    $("#current-city").empty().text(data);
+                    console.log(data);
+                });
+
             // $("#current-city").empty().text(result[1])
             setMarker(e.lngLat.lng, e.lngLat.lat);
+            mapFly(e.lngLat.lng, e.lngLat.lat);
             // mapFly(result[0][0], result[0][1])
-            // getCurrentData(result[0][0], result[0][1])
-            //     .then((data) => {
-            //         let currentObject = formatCurrentData(data);
-            //         $("#current-row").empty();
-            //         buildCurrentCard(currentObject);
-            //     })
-            // getForecastData(result[0][0], result[0][1])
-            //     .then((data) => {
-            //         let forecastArray = formatForecastData(data);
-            //         $("#forecast-row").empty();
-            //         buildForecastCards(forecastArray);
-            //     })
+            getCurrentData(e.lngLat.lng, e.lngLat.lat)
+                .then((data) => {
+                    let currentObject = formatCurrentData(data);
+                    $("#current-row").empty();
+                    buildCurrentCard(currentObject);
+                })
+            getForecastData(e.lngLat.lng, e.lngLat.lat)
+                .then((data) => {
+                    let forecastArray = formatForecastData(data);
+                    $("#forecast-row").empty();
+                    buildForecastCards(forecastArray);
+                })
         });
     })
 })();
