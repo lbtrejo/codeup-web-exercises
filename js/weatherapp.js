@@ -97,16 +97,16 @@
     function buildCurrentCard(currentObject){
             let cardHTML = "";
             cardHTML += "<div class='card bg-sun m-2 col-12 p-0 mx-auto'>"
-            cardHTML += "<div class='card-header bg-mint text-center'><i class='fas fa-calendar-day text-peach'></i>  Today's Weather</div>"
+            cardHTML += "<div class='card-header bg-mint text-center heading-font'><i class='fas fa-calendar-day text-peach'></i>  Today's Weather</div>"
             cardHTML += "<img src='" + currentObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto mt-2 p-3 bg-sky' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body'>";
-            cardHTML += "<h6 class='text-center pb-3'>Currently: <span class='font-weight-bold'>"+ parseInt(currentObject.temp) +" °F</span></h6>"
+            cardHTML += "<h6 class='text-center pb-3 heading-font'>Currently: <span class='font-weight-bold'>"+ parseInt(currentObject.temp) +" °F</span></h6>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ currentObject.description +"</span></p>"
             cardHTML += "<p class='card-text'>Feels like: <span class='font-weight-bold'>"+ parseInt(currentObject.feels) +" °F</span></p>"
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ currentObject.humidity +"%</span></p>"
             cardHTML += "<p class='card-text d-none d-md-block'>Dew Point: <span class='font-weight-bold'>"+ currentObject.dew_point +"</span></p>"
-            cardHTML += "<p class='card-text d-none d-md-block'>Sunrise: <span class='font-weight-bold'>"+ currentObject.sunrise +"CST</span></p>"
-            cardHTML += "<p class='card-text d-none d-md-block'>Sunset: <span class='font-weight-bold'>"+ currentObject.sunset +"CST</span></p>"
+            cardHTML += "<p class='card-text d-none d-md-block'>Sunrise: <span class='font-weight-bold'>"+ currentObject.sunrise +"  CST</span></p>"
+            cardHTML += "<p class='card-text d-none d-md-block'>Sunset: <span class='font-weight-bold'>"+ currentObject.sunset +"  CST</span></p>"
             cardHTML += "</div>"
 
             $("#current-row").append(cardHTML)
@@ -116,12 +116,12 @@
         forecastArray.forEach(function(forecastObject){
             let cardHTML = "";
             cardHTML += "<div class='card m-2 col-12 col-md-5 p-0 bg-sun mx-auto'>"
-            cardHTML += "<div class='card-header bg-mint text-center'><i class='fas fa-calendar-day text-peach'></i>  "+ forecastObject.date +"</div>"
+            cardHTML += "<div class='card-header bg-mint text-center heading-font'><i class='fas fa-calendar-day text-peach'></i>  "+ forecastObject.date +"</div>"
             cardHTML += "<img src='" + forecastObject.icon_large + "' class='card-img-top img-thumbnail img-fluid mx-auto mt-2 bg-sky' style='max-width: 50%; height: auto;' alt='weather icon'>";
             cardHTML += "<div class='card-body mt-1'>";
-            cardHTML += "<h6 class='text-center pb-3'>Low: <span class='font-weight-bold'>"+ parseInt(forecastObject.mintemp) +" °F</span> / High: <span class='font-weight-bold'>" + parseInt(forecastObject.maxtemp) + " °F</span></h6>"
+            cardHTML += "<h6 class='text-center pb-3 heading-font'>Low: <span class='font-weight-bold'>"+ parseInt(forecastObject.mintemp) +" °F</span> / High: <span class='font-weight-bold'>" + parseInt(forecastObject.maxtemp) + " °F</span></h6>"
             cardHTML += "<p class='card-text'>Description: <span class='font-weight-bold'>"+ forecastObject.description +"</span></p>"
-            cardHTML += "<p class='card-text'>Pressure: <span class='font-weight-bold'>"+ parseInt(forecastObject.pressure) + "</span></p>"
+            cardHTML += "<p class='card-text'>Dew Point: <span class='font-weight-bold'>"+ parseInt(forecastObject.dew_point) + "</span></p>"
             cardHTML += "<p class='card-text'>Humidity: <span class='font-weight-bold'>"+ forecastObject.humidity +"%</span></p>"
             cardHTML += "</div>"
 
@@ -149,6 +149,7 @@
         geocode(userInput, mapboxToken)
             .then(function(result){
                 $("#current-city").empty().text(result[1])
+                $("#current-city2").empty().text(result[1])
                 setMarker(result[0][0], result[0][1]);
                 mapFly(result[0][0], result[0][1])
                 getCurrentData(result[0][0], result[0][1])
@@ -179,24 +180,19 @@
                 console.log("Forecast Array: ", forecastArray);
                 buildForecastCards(forecastArray);
             })
-        // setMarker(homeCoords[0], homeCoords[1]);
 
         map.on('click', function(e) {
-// The event object (e) contains information like the
-// coordinates of the point on the map that was clicked.
             console.log('Lat: ' + e.lngLat.lat);
             console.log('Lon: ' + e.lngLat.lng);
             console.log(e);
             reverseGeocode({lat: e.lngLat.lat, lng: e.lngLat.lng}, mapboxToken)
                 .then((data) => {
                     $("#current-city").empty().text(data);
-                    console.log(data);
+                    $("#current-city2").empty().text(data);
                 });
 
-            // $("#current-city").empty().text(result[1])
             setMarker(e.lngLat.lng, e.lngLat.lat);
             mapFly(e.lngLat.lng, e.lngLat.lat);
-            // mapFly(result[0][0], result[0][1])
             getCurrentData(e.lngLat.lng, e.lngLat.lat)
                 .then((data) => {
                     let currentObject = formatCurrentData(data);
