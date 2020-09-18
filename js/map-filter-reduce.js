@@ -72,3 +72,13 @@ let longestEmail = users.reduce((longest, user) => {
 }, "")
 
 console.log("Longest Email: ", longestEmail);
+
+let singleString = users.reduce((accumulator, currentValue, index) => {
+    if (index === users.length - 1){
+        return `${accumulator} ${currentValue.name}.`
+    } else {
+        return `${accumulator} ${currentValue.name},`
+    }
+}, "Your instructors are:")
+
+console.log("String interpolation: ", singleString);
