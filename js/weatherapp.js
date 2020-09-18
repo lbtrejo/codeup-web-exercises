@@ -37,7 +37,6 @@
 
     function formatCurrentData (data){
         let resultCurrent = {};
-        console.log("Current Data: ", data);
         resultCurrent = {
                 date: new Date(data.current.dt * 1000).toDateString(),
                 dew_point: data.current.dew_point,
@@ -137,7 +136,6 @@
     }
 
     function mapFly(lon, lat){
-        console.log("lon, lat: ", lon + ", " + lat);
         map.flyTo({center: [lon, lat], zoom: 9});
     }
 
@@ -177,7 +175,6 @@
         getForecastData(homeCoords[0], homeCoords[1])
             .then((data) => {
                 let forecastArray = formatForecastData(data);
-                console.log("Forecast Array: ", forecastArray);
                 buildForecastCards(forecastArray);
             })
 
