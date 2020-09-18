@@ -4,6 +4,14 @@
     const onecallURL = 'https://api.openweathermap.org/data/2.5/onecall';
     const homeCoords = [-98.4951, 29.4246];
 
+    mapboxgl.accessToken = mapboxToken;
+    let map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v9",
+        zoom: 10,
+        center: [homeCoords[0], homeCoords[1]]
+    })
+
     function getCurrentData(lon, lat){
         return new Promise((resolve) => {
             $.ajax({
@@ -110,15 +118,18 @@
         })
     }
 
-    function buildMap(lon, lat){
-        mapboxgl.accessToken = mapboxToken;
-        var map = new mapboxgl.Map({
-            container: "map",
-            style: "mapbox://styles/mapbox/streets-v9",
-            zoom: 10,
-            center: [lon, lat]
-        })
+    function setMarker(lon, lat){
+        let marker = new mapboxgl.Marker()
+            .setLngLat([lon, lat])
+            .addTo(map);
     }
+
+    function mapFly(lon, lat){
+        console.log("lon, lat: ", lon + ", " + lat);
+        map.flyTo({center: [lon, lat], zoom: 9});
+    }
+
+
     $("#search-btn").click(function(event){
         event.preventDefault();
         let userInput = $("#search-input").val();
@@ -126,7 +137,8 @@
         geocode(userInput, mapboxToken)
             .then(function(result){
                 $("#current-city").empty().text(result[1])
-                buildMap(result[0][0], result[0][1]);
+                setMarker(result[0][0], result[0][1]);
+                mapFly(result[0][0], result[0][1])
                 getCurrentData(result[0][0], result[0][1])
                     .then((data) => {
                         let currentObject = formatCurrentData(data);
@@ -156,6 +168,12 @@
                 console.log("Forecast Array: ", forecastArray);
                 buildForecastCards(forecastArray);
             })
-        buildMap(homeCoords[0], homeCoords[1]);
+        setMarker(homeCoords[0], homeCoords[1]);
+
+        map.on('click', function(e) {
+// The event object (e) contains information like the
+// coordinates of the point on the map that was clicked.
+            console.log('A click event has occurred at ' + e.lngLat);
+        });
     })
 })();
