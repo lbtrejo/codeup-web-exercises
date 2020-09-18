@@ -12,7 +12,7 @@
         center: [homeCoords[0], homeCoords[1]]
     })
 
-    let marker = new mapboxgl.Marker()
+    let marker = new mapboxgl.Marker({color: "#AEFFE2"})
         .setLngLat([homeCoords[0], homeCoords[1]])
         .addTo(map);
 
@@ -124,7 +124,7 @@
 
     function setMarker(lon, lat){
         marker.remove();
-        marker = new mapboxgl.Marker()
+        marker = new mapboxgl.Marker({color: "#AEFFE2"})
             .setLngLat([lon, lat])
             .addTo(map);
     }
