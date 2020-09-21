@@ -178,9 +178,6 @@
             })
 
         map.on('click', function(e) {
-            console.log('Lat: ' + e.lngLat.lat);
-            console.log('Lon: ' + e.lngLat.lng);
-            console.log(e);
             reverseGeocode({lat: e.lngLat.lat, lng: e.lngLat.lng}, mapboxToken)
                 .then((data) => {
                     $("#current-city").empty().text(data);
