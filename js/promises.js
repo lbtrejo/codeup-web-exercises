@@ -31,3 +31,10 @@ $("#submitBtn").click(function(){
 })
 
 
+const wait = function (time) {
+    return new Promise(((resolve) => {
+        setTimeout(() => {
+            resolve(`Returned after ${time} milliseconds!`)
+        }, time)
+    }))
+}
