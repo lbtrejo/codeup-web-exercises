@@ -83,3 +83,13 @@ let singleString = users.reduce((accumulator, currentValue, index) => {
 
 console.log("String interpolation: ", singleString);
 
+const allLanguages = users.reduce((languages, user) => {
+    user.languages.forEach((language) => {
+        if (!languages.includes(language)) {
+            languages.push(language);
+        }
+    })
+    return languages;
+}, []);
+
+console.log(allLanguages);
